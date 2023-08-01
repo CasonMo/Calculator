@@ -22,13 +22,19 @@ public class CalculatorApplication {
         String input;
 
         System.out.println("####Calculator####");
-        System.out.println(">>How many digits to keep after the decimal point: ");
+        System.out.println(">>How many digits to keep after the decimal point(max:10): ");
         input = scanner.nextLine();
         //获取小数精确度
         if (StringUtils.isNotBlank(input) && ValidateUtil.isInteger(input)) {
             int scale = Integer.parseInt(input);
-            calculator.setScale(scale);
-            System.out.println("Tips:scale set:" + calculator.getScale());
+            if (scale > 10) {
+                System.out.println("Warning:scale must less than 10.default set scale as 2");
+                calculator.setScale(2);
+            }else {
+                calculator.setScale(scale);
+                System.out.println("Tips:scale set:" + calculator.getScale());
+            }
+
         } else {
             System.out.println("Tips:Default scale:2");
             calculator.setScale(2);
