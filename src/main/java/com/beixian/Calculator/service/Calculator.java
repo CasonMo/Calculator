@@ -25,12 +25,10 @@ public class Calculator {
         history = new Stack<>();
         undoHistory = new Stack<>();
         currentResult = BigDecimal.ZERO;
-        currentResult = currentResult.setScale(scale, roundingMode);
     }
 
     public void setScale(Integer scale) {
         this.scale = scale;
-        currentResult = currentResult.setScale(scale, roundingMode);
     }
 
     public Integer getScale() {
@@ -43,7 +41,6 @@ public class Calculator {
 
     public void setRoundingMode(RoundingMode roundingMode) {
         this.roundingMode = roundingMode;
-        currentResult = currentResult.setScale(scale, roundingMode);
     }
 
     /**
@@ -129,6 +126,7 @@ public class Calculator {
      * @return
      */
     public BigDecimal getResult() {
+        currentResult = currentResult.setScale(scale, roundingMode);
         return currentResult;
     }
 
