@@ -13,7 +13,7 @@
 
 ![Demo](image/img_1.png?raw=true)
 
-> 被除数为0 测试
+> 除数为0 测试
 
 ![Demo](image/img_2.png?raw=true)
 
