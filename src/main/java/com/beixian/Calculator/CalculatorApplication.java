@@ -15,7 +15,7 @@ import java.util.Scanner;
  * Time: 18:23
  */
 public class CalculatorApplication {
-   
+
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
         Scanner scanner = new Scanner(System.in);
@@ -24,6 +24,7 @@ public class CalculatorApplication {
         System.out.println("####Calculator####");
         System.out.println(">>How many digits to keep after the decimal point: ");
         input = scanner.nextLine();
+        //获取小数精确度
         if (StringUtils.isNotBlank(input) && ValidateUtil.isInteger(input)) {
             int scale = Integer.parseInt(input);
             calculator.setScale(scale);
@@ -35,6 +36,7 @@ public class CalculatorApplication {
         System.out.println(">>Please select Rounding Mode(default DOWN): \n 1:UP \n 2:DOWN \n 3:CEILING \n 4:FLOOR \n 5:HALF_UP \n 6:HALF_DOWN \n 7:HALF_EVEN \n 8:UNNECESSARY");
         input = scanner.nextLine();
         calculator.setRoundingMode(RoundingMode.DOWN);
+        //获取舍入模式
         if (StringUtils.isNotBlank(input) && ValidateUtil.isInteger(input)) {
             int roundingModeNum = Integer.parseInt(input);
             switch (roundingModeNum) {
@@ -63,7 +65,6 @@ public class CalculatorApplication {
                     calculator.setRoundingMode(RoundingMode.UNNECESSARY);
                     break;
                 default:
-                    System.out.println("Tips:Invalid input. The default rounding mode is DOWN");
                     calculator.setRoundingMode(RoundingMode.DOWN);
             }
             System.out.println("Tips:rounding mode set : " + calculator.getRoundingMode());
